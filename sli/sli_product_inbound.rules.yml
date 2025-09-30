@@ -2,17 +2,17 @@ groups:
 - name: sli_product.rules
   interval: 30s
   rules:
-  - record: sli:availability_ratio:product
+  - record: sli_inbound:availability_ratio:product
     expr: sum by(product) (rate(inbound_api_requests_total{status!~"5.."}[5m]))
           /
           sum by(product) (rate(inbound_api_requests_total[5m]))
 
-  - record: sli:latency_ratio:product
+  - record: sli_inbound:latency_ratio:product
     expr: sum by(product) (rate(inbound_api_request_duration_seconds_bucket{le="0.3"}[5m]))
           /
           sum by(product) (rate(inbound_api_request_duration_seconds_count[5m]))
 
-  - record: sli:error_rate:product
+  - record: sli_inbound:error_rate:product
     expr: sum by(product) (rate(inbound_api_requests_total{status=~"5.."}[5m]))
           /
           sum by(product) (rate(inbound_api_requests_total[5m]))

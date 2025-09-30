@@ -1,0 +1,34 @@
+
+- **sli/**: Contains Prometheus rules for SLIs.
+  - `sli_product_inbound.rules.yml`: Defines SLIs for inbound API requests.
+  - `sli_product_oubound.rules.yml`: Defines SLIs for outbound API requests.
+- **slo/**: Placeholder for SLO definitions.
+
+## SLIs Overview
+
+### Inbound SLIs
+Defined in `sli/sli_product_inbound.rules.yml`:
+- **Availability Ratio**: Measures the proportion of successful inbound requests.
+- **Latency Ratio**: Measures the proportion of inbound requests completed within 300ms.
+- **Error Rate**: Measures the proportion of failed inbound requests.
+
+### Outbound SLIs
+Defined in `sli/sli_product_oubound.rules.yml`:
+- **Availability Ratio**: Measures the proportion of successful outbound requests.
+- **Latency Ratio**: Measures the proportion of outbound requests completed within 300ms.
+- **Error Rate**: Measures the proportion of failed outbound requests.
+
+## How to Use
+
+1. **Set Up Prometheus**: Ensure Prometheus is installed and configured in your environment.
+2. **Load Rules**: Add the `.yml` files from the `sli/` directory to your Prometheus configuration.
+3. **Monitor Metrics**: Use Prometheus to monitor the defined SLIs and visualize them in a dashboard (e.g., Grafana).
+
+## Future Work
+
+- Add SLO definitions in the `slo/` directory.
+- Extend the framework to support additional metrics and services.
+
+## License
+
+This project is licensed under the MIT License.
