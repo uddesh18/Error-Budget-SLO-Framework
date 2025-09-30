@@ -1,0 +1,21 @@
+groups:
+- name: slo.rules
+  interval: 30s
+  rules:
+  - record: slo_inbound:availability_error_budget:product
+    expr: 1 - sli_inbound:availability_ratio:product
+
+  - record: slo_inbound:latency_error_budget:product
+    expr: 1 - sli_inbound:latency_ratio:product
+
+  - record: slo_inbound:error_rate_budget:product
+    expr: sli_inbound:error_rate:product
+  
+  - record: slo_outbound:availability_error_budget:product
+    expr: 1 - sli_outbound:availability_ratio:product
+
+  - record: slo_outbound:latency_error_budget:product
+    expr: 1 - sli_outbound:latency_ratio:product
+
+  - record: slo_outbound:error_rate_budget:product
+    expr: sli_outbound:error_rate:product
